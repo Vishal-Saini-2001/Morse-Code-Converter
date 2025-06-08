@@ -12,6 +12,16 @@ export default defineConfig({
       input: {
         main: './index.html',
       }
-    }
+    },
+    // Optimize for SEO
+    minify: true,
+    sourcemap: false,
+    // Ensure assets are properly named for caching
+    assetsDir: 'assets'
+  },
+  // SEO-friendly server configuration
+  server: {
+    port: 5173,
+    open: true
   }
 });

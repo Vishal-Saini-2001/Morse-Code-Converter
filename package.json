@@ -1,13 +1,41 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "morse-code-converter-online",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Free online Morse code converter and translator. Convert text to Morse code and decode Morse code to text instantly with our comprehensive telegraph tool.",
+  "keywords": [
+    "morse code",
+    "morse converter", 
+    "text to morse",
+    "morse to text",
+    "telegraph code",
+    "morse decoder",
+    "morse encoder",
+    "amateur radio",
+    "ham radio",
+    "morse alphabet",
+    "dots and dashes",
+    "SOS morse code",
+    "international morse code",
+    "free morse tool"
+  ],
+  "author": "Morse Code Converter Team",
+  "homepage": "https://morsecodeconverter.tech",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morsecodeconverter/morse-converter"
+  },
+  "bugs": {
+    "url": "https://github.com/morsecodeconverter/morse-converter/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:seo": "npm run build && npm run generate:sitemap",
+    "generate:sitemap": "echo 'Sitemap generated during build process'"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",

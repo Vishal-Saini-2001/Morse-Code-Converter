@@ -7,32 +7,113 @@ const Footer: React.FC = () => {
   const openModal = (modal: string) => setActiveModal(modal);
   const closeModal = () => setActiveModal(null);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <>
       <footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Morse Code Converter</h3>
-              <p className="text-gray-400 text-sm">
-                Convert text to Morse code and Morse code to text with our free, easy-to-use online tool.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="md:col-span-2">
+              <h3 className="text-xl font-bold mb-4">Free Morse Code Converter</h3>
+              <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                The most comprehensive free online Morse code converter and telegraph translator. 
+                Convert text to Morse code and decode Morse code to text instantly. Perfect for 
+                amateur radio operators, students, and telegraph enthusiasts worldwide.
               </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded">Free Tool</span>
+                <span className="bg-green-600 text-white text-xs px-2 py-1 rounded">Real-time</span>
+                <span className="bg-purple-600 text-white text-xs px-2 py-1 rounded">No Registration</span>
+                <span className="bg-orange-600 text-white text-xs px-2 py-1 rounded">Mobile Friendly</span>
+              </div>
             </div>
+            
             <div>
-              <h4 className="text-md font-semibold mb-4">Quick Links</h4>
+              <h4 className="text-lg font-semibold mb-4">Morse Code Tools</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <button
+                    onClick={() => scrollToSection('converter')}
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    Text to Morse Converter
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('converter')}
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    Morse to Text Decoder
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('morse-alphabet')}
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    Morse Code Alphabet Chart
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('about-morse')}
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    About Morse Code
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('faq')}
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    FAQ & Help
+                  </button>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Resources & Info</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <button
                     onClick={() => openModal('about')}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
                   >
-                    About
+                    About This Tool
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('how-to-use')}
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    How to Use Guide
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('about-morse')}
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    Morse Code History
                   </button>
                 </li>
                 <li>
                   <button
                     onClick={() => openModal('privacy')}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
                   >
                     Privacy Policy
                   </button>
@@ -40,25 +121,31 @@ const Footer: React.FC = () => {
                 <li>
                   <button
                     onClick={() => openModal('contact')}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
                   >
-                    Contact
+                    Contact Support
                   </button>
                 </li>
               </ul>
             </div>
-            <div>
-              <h4 className="text-md font-semibold mb-4">Features</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>Real-time conversion</li>
-                <li>Copy to clipboard</li>
-                <li>Conversion history</li>
-                <li>Mobile responsive</li>
-              </ul>
-            </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            © 2024 Morse Code Converter. All rights reserved.
+          
+          {/* Keywords footer for SEO */}
+          <div className="border-t border-gray-800 mt-8 pt-6">
+            <div className="text-center mb-4">
+              <p className="text-xs text-gray-500 leading-relaxed">
+                Related searches: morse code converter online free | text to morse code translator | 
+                morse code decoder | telegraph code generator | international morse code alphabet | 
+                ham radio morse practice | SOS morse code | CW morse converter | dots and dashes translator | 
+                amateur radio tools | morse code chart printable | morse code generator free online
+              </p>
+            </div>
+            <div className="text-center text-sm text-gray-400">
+              <p>© 2025 MorseCodeConverter.tech - Free Online Morse Code Tools</p>
+              <p className="text-xs mt-1">
+                Best free Morse code converter for text-to-morse and morse-to-text translation
+              </p>
+            </div>
           </div>
         </div>
       </footer>
@@ -69,18 +156,18 @@ const Footer: React.FC = () => {
         onClose={closeModal}
         title="About Morse Code Converter"
       >
-        <div className="space-y-4 text-gray-700">
+        <div className="space-y-4 text-gray-700 dark:text-gray-300">
           <p>
             Morse Code Converter is a free online tool that allows you to easily convert text to Morse code 
             and Morse code back to text. Our tool is designed to be simple, fast, and accurate.
           </p>
-          <h3 className="text-lg font-semibold text-gray-900">What is Morse Code?</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">What is Morse Code?</h3>
           <p>
             Morse code is a method used in telecommunication to encode text characters as standardized 
             sequences of two different signal durations, called dots and dashes. It was developed by 
             Samuel Morse in the 1830s and 1840s.
           </p>
-          <h3 className="text-lg font-semibold text-gray-900">Features</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Features</h3>
           <ul className="list-disc list-inside space-y-1">
             <li>Real-time conversion as you type</li>
             <li>Support for letters, numbers, and common punctuation</li>
@@ -98,34 +185,34 @@ const Footer: React.FC = () => {
         onClose={closeModal}
         title="Privacy Policy"
       >
-        <div className="space-y-4 text-gray-700">
+        <div className="space-y-4 text-gray-700 dark:text-gray-300">
           <p><strong>Last updated:</strong> {new Date().toLocaleDateString()}</p>
           
-          <h3 className="text-lg font-semibold text-gray-900">Information We Collect</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Information We Collect</h3>
           <p>
             We do not collect any personal information. All conversions are performed locally in your browser 
             and are not stored on our servers.
           </p>
           
-          <h3 className="text-lg font-semibold text-gray-900">Cookies</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cookies</h3>
           <p>
             We may use cookies for analytics purposes through Google Analytics to understand how our service 
             is used and to improve user experience.
           </p>
           
-          <h3 className="text-lg font-semibold text-gray-900">Third-Party Services</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Third-Party Services</h3>
           <p>
             We may display advertisements through Google AdSense. Please refer to Google's privacy policy 
             for information about how they handle data.
           </p>
           
-          <h3 className="text-lg font-semibold text-gray-900">Data Security</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Data Security</h3>
           <p>
             Since we don't store your data, there's no risk of your conversion history being compromised. 
             All processing happens locally in your browser.
           </p>
           
-          <h3 className="text-lg font-semibold text-gray-900">Contact</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Contact</h3>
           <p>
             If you have any questions about this Privacy Policy, please contact us through our contact form.
           </p>
@@ -138,14 +225,14 @@ const Footer: React.FC = () => {
         onClose={closeModal}
         title="Contact Us"
       >
-        <div className="space-y-4 text-gray-700">
+        <div className="space-y-4 text-gray-700 dark:text-gray-300">
           <p>
             We'd love to hear from you! Whether you have questions, suggestions, or feedback about our 
             Morse Code Converter tool, please don't hesitate to reach out.
           </p>
           
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Get in Touch</h3>
+          <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg transition-colors duration-200">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Get in Touch</h3>
             <p className="text-sm">
               Email: contact@morsecodeconverter.tech
             </p>
@@ -154,7 +241,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
           
-          <h3 className="text-lg font-semibold text-gray-900">Feedback</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Feedback</h3>
           <p>
             Your feedback helps us improve our tool. Let us know about:
           </p>
@@ -165,7 +252,7 @@ const Footer: React.FC = () => {
             <li>General suggestions</li>
           </ul>
           
-          <h3 className="text-lg font-semibold text-gray-900">Support</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Support</h3>
           <p>
             If you're having trouble using our tool, please include:
           </p>

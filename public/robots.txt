@@ -2,5 +2,20 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /api/
+Disallow: /*.json$
 
+# Allow all search engines to crawl important pages
+Allow: /text-to-morse
+Allow: /morse-to-text
+Allow: /morse-code-alphabet
+Allow: /sos-morse-code
+
+# Crawl delay to be respectful to server resources
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://www.morsecodeconverter.tech/sitemap.xml
+
+# Additional sitemaps for better indexing
+Sitemap: https://www.morsecodeconverter.tech/sitemap-pages.xml
