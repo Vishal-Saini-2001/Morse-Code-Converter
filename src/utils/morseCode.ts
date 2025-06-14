@@ -42,6 +42,6 @@ export const morseToText = (morse: string): string => {
 };
 
 export const isValidMorseCode = (morse: string): boolean => {
-  const morsePattern = /^[.\-\s\/]*$/;
+  const morsePattern = /^[.\-\s/]*$/;
   return morsePattern.test(morse);
 };
