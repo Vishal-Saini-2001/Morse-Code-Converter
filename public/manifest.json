@@ -1,24 +1,36 @@
 {
   "name": "Morse Code Converter",
   "short_name": "MorseCode",
-  "description": "Free online Morse code converter and translator",
-  "icons": [
+  "description": "Free online Morse code converter and translator",  "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "32x32",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
     },
     {
       "src": "/apple-touch-icon.svg",
       "sizes": "180x180",
       "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/favicon.ico",
-      "sizes": "16x16 32x32 48x48",
-      "type": "image/x-icon"
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#1D4ED8",
