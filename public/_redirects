@@ -1,7 +1,16 @@
 # Netlify redirects file
-# Ensure ads.txt is served with correct headers
+# Ensure static assets are served with correct headers
+/assets/*  /assets/:splat  200
+/favicon.ico  /favicon.ico  200
+/favicon.svg  /favicon.svg  200
+/manifest.json  /manifest.json  200
+  Content-Type: application/json
 /ads.txt /ads.txt 200
   Content-Type: text/plain
+/robots.txt  /robots.txt  200
+  Content-Type: text/plain
+/sitemap*.xml  /sitemap*.xml  200
+  Content-Type: application/xml
 
-# Handle SPA routing
+# Handle SPA routing - this should be last
 /*    /index.html   200
