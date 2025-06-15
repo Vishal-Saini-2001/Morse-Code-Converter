@@ -8,11 +8,6 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   build: {
-    rollupOptions: {
-      input: {
-        main: './index.html',
-      }
-    },
     // Optimize for SEO
     minify: true,
     sourcemap: false,
