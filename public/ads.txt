@@ -1,1 +1,3 @@
+# ads.txt file for morse-code-converter-online
+# This file helps verify authorized digital sellers of ad inventory
 google.com, pub-6456978941650071, DIRECT, f08c47fec0942fa0

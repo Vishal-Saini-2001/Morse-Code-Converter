@@ -1,0 +1,7 @@
+# Netlify redirects file
+# Ensure ads.txt is served with correct headers
+/ads.txt /ads.txt 200
+  Content-Type: text/plain
+
+# Handle SPA routing
+/*    /index.html   200

@@ -42,6 +42,16 @@
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 </IfModule>
 
+# Specific handling for ads.txt file
+<Files "ads.txt">
+    Header set Content-Type "text/plain; charset=utf-8"
+    Header set Cache-Control "public, max-age=3600"
+    # Ensure ads.txt is accessible
+    <RequireAll>
+        Require all granted
+    </RequireAll>
+</Files>
+
 # Redirect HTTP to HTTPS for better SEO ranking
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
@@ -64,6 +74,9 @@ ErrorDocument 500 /500.html
 # SEO-friendly URLs for SPA
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    
+    # Handle ads.txt specifically - serve directly
+    RewriteRule ^ads\.txt$ ads.txt [L,QSA]
     
     # Handle Angular and React Router
     RewriteBase /

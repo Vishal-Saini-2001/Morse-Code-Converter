@@ -22,6 +22,14 @@ export default defineConfig({
   // SEO-friendly server configuration
   server: {
     port: 5173,
-    open: true
+    open: true,
+    // Ensure ads.txt is served with correct MIME type
+    middlewareMode: false,
+  },
+  // Ensure public files are correctly copied to dist
+  publicDir: 'public',
+  // Configure static file serving
+  define: {
+    // Ensure ads.txt is served at root level
   }
 });
