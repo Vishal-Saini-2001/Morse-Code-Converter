@@ -1,7 +1,4 @@
 # Netlify redirects file
-# Redirect non-www to www
-https://morsecodeconverter.tech/*  https://www.morsecodeconverter.tech/:splat  301!
-
 # Ensure static assets are served with correct headers
 /assets/*  /assets/:splat  200
 /favicon.ico  /favicon.ico  200

@@ -1,61 +1,10 @@
 {
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "morsecodeconverter.tech"
-        }
-      ],
-      "destination": "https://www.morsecodeconverter.tech/$1",
-      "permanent": true
-    }
-  ],
   "routes": [
     {
       "src": "/ads.txt",
       "dest": "/ads.txt",
       "headers": {
         "Content-Type": "text/plain; charset=utf-8",
-        "Cache-Control": "public, max-age=3600"
-      }
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "src": "/favicon\\.(ico|svg)",
-      "dest": "/$0",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      }
-    },
-    {
-      "src": "/manifest\\.json",
-      "dest": "/manifest.json",
-      "headers": {
-        "Content-Type": "application/json",
-        "Cache-Control": "public, max-age=3600"
-      }
-    },
-    {
-      "src": "/robots\\.txt",
-      "dest": "/robots.txt",
-      "headers": {
-        "Content-Type": "text/plain",
-        "Cache-Control": "public, max-age=3600"
-      }
-    },
-    {
-      "src": "/sitemap.*\\.xml",
-      "dest": "/$0",
-      "headers": {
-        "Content-Type": "application/xml",
         "Cache-Control": "public, max-age=3600"
       }
     },
