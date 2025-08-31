@@ -10,6 +10,8 @@ Allow: /text-to-morse
 Allow: /morse-to-text
 Allow: /morse-code-alphabet
 Allow: /sos-morse-code
+Allow: /blog
+Allow: /blog/
 
 # Crawl delay to be respectful to server resources
 Crawl-delay: 1
