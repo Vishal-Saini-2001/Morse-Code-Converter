@@ -20,7 +20,7 @@ const Header: React.FC = () => {
               </p>
             </div>
           </div>
-          
+
           <div className="flex items-center space-x-4">
             <div className="hidden sm:flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex items-center space-x-1">
@@ -38,20 +38,20 @@ const Header: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Navigation breadcrumb for SEO */}
         <nav className="hidden md:block pb-2" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
             <li>
-              <span className="text-blue-600 dark:text-blue-400 font-medium">Home</span>
+              <a href="#home" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">Home</a>
             </li>
             <li className="flex items-center">
               <span className="mx-2">/</span>
-              <span>Morse Code Tools</span>
+              <a href="#converter" className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline">Morse Code Tools</a>
             </li>
             <li className="flex items-center">
               <span className="mx-2">/</span>
-              <span>Free Converter</span>
+              <a href="#blog" className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline">Blog</a>
             </li>
           </ol>
         </nav>

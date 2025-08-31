@@ -2,30 +2,34 @@ import Header from './components/Header';
 import Converter from './components/Converter';
 import Footer from './components/Footer';
 import AdBanner from './components/AdBanner';
+import BlogSection from './components/BlogSection';
+import BlogPost from './components/BlogPost';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
-function App() {
+function Home() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col transition-colors duration-200">
       <Header />
-      
+
       {/* Top Ad Banner */}
       <div className="flex justify-center py-4">
         <AdBanner position="top" />
       </div>
-      
+
       <main className="flex-1">
         <div className="max-w-7xl mx-auto">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
             {/* Main Content */}
             <div className="lg:col-span-9">
               {/* Hero Section */}
-              <div className="text-center py-8 px-4">
+              <div id="home" className="text-center py-8 px-4">
                 <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
                   Free Online Morse Code Converter & Translator 2025
                 </h1>
                 <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6">
-                  Convert text to Morse code and decode Morse code to text instantly with our free online tool. 
-                  Fast, accurate telegraph code translator with real-time conversion, copy functionality, and mobile support. 
+                  Convert text to Morse code and decode Morse code to text instantly with our free online tool.
+                  Fast, accurate telegraph code translator with real-time conversion, copy functionality, and mobile support.
                   Perfect for amateur radio operators, students learning Morse code, and telegraph enthusiasts.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 mb-4">
@@ -35,9 +39,11 @@ function App() {
                   <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">🔒 No Registration</span>
                 </div>
               </div>
-              
-              <Converter />
-              
+
+              <div id="converter">
+                <Converter />
+              </div>
+
               {/* Additional Content for SEO */}
               <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 {/* How to Use Section */}
@@ -81,10 +87,10 @@ function App() {
                     Complete International Morse Code Alphabet Chart
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Learn the complete International Morse Code alphabet, numbers, and punctuation. 
+                    Learn the complete International Morse Code alphabet, numbers, and punctuation.
                     This reference chart shows the dot-dash patterns for each character used in telegraph communication.
                   </p>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Letters A-I</h4>
@@ -100,7 +106,7 @@ function App() {
                         <div className="flex justify-between"><span className="font-bold dark:text-gray-200">I:</span> <span className="dark:text-gray-300">..</span></div>
                       </div>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Letters J-R</h4>
                       <div className="space-y-2 text-sm font-mono">
@@ -115,7 +121,7 @@ function App() {
                         <div className="flex justify-between"><span className="font-bold dark:text-gray-200">R:</span> <span className="dark:text-gray-300">.-.</span></div>
                       </div>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Letters S-Z</h4>
                       <div className="space-y-2 text-sm font-mono">
@@ -130,7 +136,7 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Numbers 0-9</h4>
@@ -147,7 +153,7 @@ function App() {
                         <div className="flex justify-between"><span className="font-bold dark:text-gray-200">9:</span> <span className="dark:text-gray-300">----.</span></div>
                       </div>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Common Punctuation</h4>
                       <div className="space-y-2 text-sm font-mono">
@@ -169,11 +175,11 @@ function App() {
                   </h2>
                   <div className="prose prose-gray max-w-none">
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
-                      <strong>Morse code</strong> is a communication method that uses standardized sequences of dots and dashes 
-                      to represent letters, numbers, and punctuation. Developed by Samuel Morse and Alfred Vail in the 1830s, 
+                      <strong>Morse code</strong> is a communication method that uses standardized sequences of dots and dashes
+                      to represent letters, numbers, and punctuation. Developed by Samuel Morse and Alfred Vail in the 1830s,
                       it revolutionized long-distance communication through telegraph systems.
                     </p>
-                    
+
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Modern Uses of Morse Code</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-6">
                       <li><strong>Amateur Radio (Ham Radio):</strong> Emergency communications and hobby broadcasting</li>
@@ -183,7 +189,7 @@ function App() {
                       <li><strong>Education:</strong> Learning communication history and encoding principles</li>
                       <li><strong>Accessibility:</strong> Communication method for people with speech or hearing impairments</li>
                     </ul>
-                    
+
                     <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Famous Morse Code Signals</h4>
                     <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-6 transition-colors duration-200">
                       <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -206,47 +212,47 @@ function App() {
                         Is this Morse code converter free to use?
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300">
-                        Yes, our Morse code converter is completely free to use. No registration, subscription, or payment required. 
+                        Yes, our Morse code converter is completely free to use. No registration, subscription, or payment required.
                         You can convert unlimited text to Morse code and decode Morse code to text without any restrictions.
                       </p>
                     </div>
-                    
+
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                         Does the tool work offline?
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300">
-                        Once the page is loaded, the basic conversion functionality works offline. However, for the best experience 
+                        Once the page is loaded, the basic conversion functionality works offline. However, for the best experience
                         and access to all features, we recommend using the tool with an internet connection.
                       </p>
                     </div>
-                    
+
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                         What's the difference between dots and dashes in Morse code?
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300">
-                        In Morse code, a dot (dit) is a short signal, while a dash (dah) is a long signal that's three times 
+                        In Morse code, a dot (dit) is a short signal, while a dash (dah) is a long signal that's three times
                         the length of a dot. The timing relationship between dots and dashes is crucial for proper Morse code transmission.
                       </p>
                     </div>
-                    
+
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                         Can I use this tool for amateur radio practice?
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300">
-                        Absolutely! Our tool is perfect for ham radio operators and amateur radio enthusiasts who want to practice 
+                        Absolutely! Our tool is perfect for ham radio operators and amateur radio enthusiasts who want to practice
                         Morse code conversion, learn the alphabet, or prepare for licensing exams.
                       </p>
                     </div>
-                    
+
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                         How accurate is the Morse code translation?
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300">
-                        Our converter uses the official International Morse Code standard, ensuring 100% accuracy for all letters, 
+                        Our converter uses the official International Morse Code standard, ensuring 100% accuracy for all letters,
                         numbers, and common punctuation marks supported by the International Telecommunication Union.
                       </p>
                     </div>
@@ -254,12 +260,12 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             {/* Sidebar with Ad */}
             <div className="lg:col-span-3 p-4">
               <div className="sticky top-4 space-y-6">
                 <AdBanner position="sidebar" className="mb-6" />
-                
+
                 {/* Key Features */}
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 transition-colors duration-200">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
@@ -331,15 +337,39 @@ function App() {
             </div>
           </div>
         </div>
+
+        {/* Blog Section */}
+        <BlogSection />
       </main>
-      
+
       {/* Footer Ad */}
       <div className="flex justify-center py-4 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors duration-200">
         <AdBanner position="footer" />
       </div>
-      
+
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle hash navigation for anchor links
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/blog/:id" element={<BlogPost />} />
+    </Routes>
   );
 }
 
